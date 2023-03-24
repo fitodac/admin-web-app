@@ -1,0 +1,18 @@
+.btn{
+	@apply bg-slate-900 text-slate-300 
+						font-semibold leading-none 
+						px-4 py-2.5 
+						whitespace-nowrap select-none 
+						rounded-md transition-all
+						hover:bg-slate-700 hover:text-slate-200 hover:shadow-md
+						focus:bg-slate-600 focus:text-white;
+}
+
+
+.btn.small{
+	@apply text-sm px-3 py-1;
+}
+
+.btn.large{
+	@apply px-6 py-3;
+}

@@ -1,0 +1,15 @@
+body{
+	@apply bg-slate-900 antialiased;
+}
+
+.main_wrapper{
+	@apply bg-slate-800 min-h-screen grid grid-cols-12;
+}
+
+.navbar{
+	@apply col-span-2;
+}
+
+.main{
+	@apply text-slate-300 col-span-10 px-10 pt-4;
+}

@@ -1,0 +1,25 @@
+.brand{
+	@apply text-slate-400 font-bold leading-none px-6 pt-4 select-none;
+}
+
+.navbar{
+	@apply bg-slate-900 h-full select-none;
+}
+
+.navbar ul{
+	@apply w-full px-6 pt-8 grid gap-y-6;
+}
+
+.navbar li{
+	@apply text-slate-400 text-sm leading-none;
+}
+
+.navbar a{
+	@apply transition-all hover:text-slate-300;
+}
+
+
+
+.navbar ul li ul{
+	@apply px-0 pl-2 pt-4 gap-y-3;
+}

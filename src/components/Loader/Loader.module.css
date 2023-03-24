@@ -1,0 +1,11 @@
+.loader-wrapper{
+	@apply h-screen grid place-content-center select-none;
+}
+
+.loader-content{
+	@apply text-sm font-semibold flex items-center gap-x-1;
+}
+
+.loader{
+	@apply inline h-8 w-8 animate-spin mr-2 text-gray-200 dark:text-gray-600 fill-gray-600 dark:fill-gray-300;
+}
