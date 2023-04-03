@@ -1,6 +1,6 @@
 import { supabase } from '../supabaseClient'
 
-const updateUser = async (form) => {
+const updateUser = async form => {
 	
 	try {
 

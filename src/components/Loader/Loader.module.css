@@ -1,5 +1,6 @@
 .loader-wrapper{
-	@apply h-screen grid place-content-center select-none;
+	@apply bg-slate-800 h-screen grid place-content-center 
+					inset-0 fixed select-none z-50;
 }
 
 .loader-content{
@@ -7,5 +8,7 @@
 }
 
 .loader{
-	@apply inline h-8 w-8 animate-spin mr-2 text-gray-200 dark:text-gray-600 fill-gray-600 dark:fill-gray-300;
+	@apply inline h-8 w-8 animate-spin mr-2 
+					text-gray-200 dark:text-gray-600 
+					fill-gray-600 dark:fill-gray-300;
 }

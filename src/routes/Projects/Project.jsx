@@ -2,13 +2,17 @@ import { useState, useEffect } from 'react'
 import { useLoaderData, Form } from 'react-router-dom'
 import getProject from '../../utils/getProject'
 import deleteProject from '../../utils/deleteProject'
+import getTasksLists from '../../utils/getTasksLists'
 
 import { useDispatch } from 'react-redux'
 import { setLoading } from '../../reducers/app/appSlice'
 
 import Header from '../../components/PageHeader/PageHeader'
+import Navbar from '../../components/Projects/Navbar/Navbar'
 import Button from '../../components/Button/Button'
+import TaskListForm from '../../components/TaskList/Form'
 
+import style from './Projects.module.css'
 
 
 const loader = async ({ params }) => params.id
@@ -23,11 +27,22 @@ const action = async ({ request }) => {
 }
 
 
+
+
 const Project = () => {
 	
 	const id = useLoaderData()
 	const [project, setProject] = useState({})
+	const [tasks, setTasks] = useState([])
 	const dispatch = useDispatch()
+	const [task_list_modal, setTaskListModal] = useState(false)
+	const [cur_taskList, setCurTaskList] = useState({
+		project_id: id,
+		name: '',
+		order: 0
+	})
+
+
 
 	const { 
 		name,
@@ -45,7 +60,9 @@ const Project = () => {
 		
 		const fetchData = async () => {
 			const data = await getProject(id)
+			const tasksData = await getTasksLists(id)
 			setProject(data)
+			setTasks(tasksData)
 			dispatch(setLoading(false))
 		}
 
@@ -54,12 +71,59 @@ const Project = () => {
 
 
 
+	const editTaskList = e => {
+		setCurTaskList({
+			...cur_taskList,
+			name: e.name,
+			order: e.order,
+			id: e.id
+		})
+		setTaskListModal(true)
+	}
+
+
+
+
 	return (
 		<>
 			<Header title="Proyecto"/>
 
+
+			<Navbar />
+
+
 			<div className="page-content">
-				<div className="grid grid-cols-12 gap-x-10">
+				<div className="w-[500px] grid gap-y-10">
+					{ (tasks && tasks.length > 0) ? 
+						tasks.map(list => (
+							<div 
+								key={ list.id } 
+								className={ style['task-list'] }>
+									<div className={ style['task-list--header'] }>
+										<span className={ style['task-list--name'] }>
+											<span>{ list.name }</span>
+											<small>{ list.id }</small>
+										</span>
+										
+										<Button 
+											text="Editar"
+											size="small"
+											action={ () => editTaskList(list) } />
+									</div>
+							</div>
+						)) : 
+						(<div className="">No hay tareas</div>) }
+					<div>
+						<Button 
+							text="Nueva lista de tareas"
+							action={ () => setTaskListModal(true) } />
+					</div>
+				</div>
+
+
+
+
+				<div className="grid grid-cols-12 gap-x-10 mt-20">
 
 					<div className="col-span-6">
 						<div className="grid gap-y-7">
@@ -94,6 +158,19 @@ const Project = () => {
 					</div>
 
 				</div>
+
+
+
+				{ task_list_modal ? 
+					(<TaskListForm 
+						data={ cur_taskList }
+						closeModal={ list => {
+							console.log('list', list)
+							setTaskListModal(false)
+						} }
+						/>) :
+					null}
+				
 			</div>
 		</>
 	)

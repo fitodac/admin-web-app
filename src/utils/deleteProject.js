@@ -1,9 +1,8 @@
 import { supabase } from '../supabaseClient'
 
-const deleteProject = async (id) => {
+const deleteProject = async id => {
 	
 	try {
-
 		const { data, error } = await supabase
 			.from('projects')
 			.delete()
@@ -21,6 +20,7 @@ const deleteProject = async (id) => {
 		console.log('error', err)
 		
 	}
+
 }
 
 export default deleteProject

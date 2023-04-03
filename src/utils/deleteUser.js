@@ -1,6 +1,6 @@
 import { supabase } from '../supabaseClient'
 
-const deleteUser = async (id) => {
+const deleteUser = async id => {
 	
 	try {
 

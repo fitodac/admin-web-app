@@ -1,0 +1,14 @@
+.task-list{}
+
+.task-list--header{
+	@apply flex justify-between gap-x-5;
+}
+
+.task-list--name{
+	@apply text-lg leading-tight font-bold 
+					flex gap-x-3 select-none;
+}
+
+.task-list--name small{
+	@apply text-slate-500 text-xs;
+}

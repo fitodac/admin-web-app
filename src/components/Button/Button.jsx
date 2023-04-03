@@ -5,9 +5,10 @@ import style from './Button.module.css'
 const Button = (props) => {
 
 	const {
-		text,
+		text,	// Texto del botón
 		size, // smal, large
-		to
+		to, // Si tiene el atributo 'to', renderiza un <a/>
+		type
 	} = props
 
 	const button_class = [ style.btn ]
@@ -27,7 +28,8 @@ const Button = (props) => {
 			</Link>): 
 			(<button 
 				className={ button_class.join(' ') }
-				onClick={ handleClick }>
+				onClick={ handleClick }
+				type={ type ?? 'button' }>
 				{ text }
 			</button>)
 		}

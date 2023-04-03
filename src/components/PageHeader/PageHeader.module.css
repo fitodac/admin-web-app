@@ -1,5 +1,5 @@
 .header{
-	@apply border-b border-slate-900 pb-6 select-none;
+	@apply pb-6 select-none;
 }
 
 

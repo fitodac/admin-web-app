@@ -19,7 +19,7 @@ const Select = (props) => {
 		props.onChange(e.value)
 	}
 
-	console.log( options.findIndex(e => e.value === props.value) )
+	// console.log( options.findIndex(e => e.value === props.value) )
 
 
 	return (

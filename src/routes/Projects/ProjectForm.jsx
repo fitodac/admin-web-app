@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { 
+	useNavigate,
 	useLoaderData, 
 	Form,
 	redirect 
@@ -49,6 +50,7 @@ const ProjectForm = () => {
 	const [project, setProject] = useState({})
 	const [users, setUsers] = useState([])
 	const dispatch = useDispatch()
+	const navigate = useNavigate()
 
 
 
@@ -83,8 +85,6 @@ const ProjectForm = () => {
 		const obj = {...project}
 		obj[idx] = val
 		setProject(obj)
-		
-		// if( errors && errors[idx] ) errors[idx].value = null
 	}
 
 
@@ -169,7 +169,7 @@ const ProjectForm = () => {
 								</div>
 
 
-								<div className="flex justify-end">
+								<div className="flex justify-end gap-x-4">
 									<textarea 
 										name="description" 
 										value={ description }
@@ -179,6 +179,7 @@ const ProjectForm = () => {
 
 									<input type="hidden" name="user" value={ user } />
 
+									<button onClick={() => navigate(-1) }>Cancelar</button>
 									<Button text="Guardar" />
 								</div>
 							</div>

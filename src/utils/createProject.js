@@ -1,6 +1,6 @@
 import { supabase } from '../supabaseClient'
 
-const createProject = async (form) => {
+const createProject = async form => {
 
 	for(let i in form) if( !form[i].length ) form[i] = null
 	

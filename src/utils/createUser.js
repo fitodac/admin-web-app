@@ -1,6 +1,6 @@
 import { supabase } from '../supabaseClient'
 
-const createUser = async (form) => {
+const createUser = async form => {
 	
 	for(let i in form) if( !form[i].length ) form[i] = null
 	

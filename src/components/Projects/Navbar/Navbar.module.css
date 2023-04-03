@@ -1,0 +1,12 @@
+.navbar{
+	@apply bg-slate-900 rounded-lg;
+}
+
+.nav{
+	@apply px-2 py-2 flex gap-x-1;
+}
+
+.nav a{
+	@apply text-sm leading-none font-medium whitespace-nowrap 
+					px-3 py-1.5 select-none rounded-md;
+}
