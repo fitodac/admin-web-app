@@ -1,8 +1,7 @@
-import { useEffect } from 'react'
 import style from './Form.module.css'
 
 
-const Input = (props) => {
+const Input = props => {
 
 	const {
 		label,
@@ -26,6 +25,7 @@ const Input = (props) => {
 				{ label }
 				{ required ? (<span className={ style['label-required']}></span>) : null }
 			</label>
+
 
 			<input 
 				type="text" 

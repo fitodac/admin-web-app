@@ -1,7 +1,46 @@
+.uuid{
+	@apply text-xs text-slate-500;
+}
+
+
+/**
+Navbar
+**/
+.navbar{
+	@apply bg-slate-900 rounded-lg;
+}
+
+.nav{
+	@apply px-2 py-2 flex gap-x-1;
+}
+
+.nav a{
+	@apply text-sm leading-none font-medium whitespace-nowrap 
+					px-3 py-1.5 select-none rounded-md;
+}
+
+
+
+
+/**
+Tasks list
+**/
 .task-list{}
 
+.task-list + .task-list{
+	@apply border-t border-slate-700 pt-8;
+}
+
 .task-list--header{
-	@apply flex justify-between gap-x-5;
+	@apply flex gap-x-5;
+}
+
+.task-list--btn-edit{
+	@apply invisible transition-all;
+}
+
+.task-list--header:hover .task-list--btn-edit{
+	@apply visible;
 }
 
 .task-list--name{
@@ -12,3 +51,77 @@
 .task-list--name small{
 	@apply text-slate-500 text-xs;
 }
+
+.task-list--footer{
+	@apply mt-8 flex;
+}
+
+
+
+/**
+Tasks
+**/
+.tasks{
+	@apply mt-5 grid gap-y-3;
+}
+
+.task-item{
+
+}
+
+
+.task-item + .task-item{
+	@apply border-t border-slate-700 pt-3;
+}
+
+.task-body{
+	@apply px-3 py-1.5 rounded-lg;
+}
+
+.task-item--header{
+	@apply flex justify-between gap-x-3;
+}
+
+.task-item--name{
+	@apply font-semibold whitespace-nowrap overflow-hidden 
+					overflow-ellipsis flex gap-x-2 cursor-pointer transition-all
+					hover:text-slate-100;
+}
+
+.task-item--name small{
+	@apply text-xs top-1 relative opacity-40;
+}
+
+.task-item--status{
+	font-size: .8rem;
+	@apply font-medium leading-none select-none top-2 relative;
+}
+
+.task-item--status span{
+	@apply px-2 py-0.5 inline-block rounded;
+}
+
+.task-item--status .pending{ @apply text-yellow-600; }
+.task-item--status .active{ @apply text-green-500; }
+.task-item--status .closed{ @apply text-slate-500; }
+
+.task-item--order{
+	@apply text-sm text-slate-700 font-medium;
+}
+
+
+.task-item--description{
+	@apply text-slate-500 text-sm leading-tight;
+}
+
+
+
+.task-high-priority .task-item--name{
+	--color: rgb(161 98 7 / .5);
+	
+	background: var(--color);
+	box-shadow: -8px 0 0 var(--color), 8px 0 0 var(--color);
+	@apply text-yellow-500 rounded;
+}
+
+.task-high-priority .task-item--name small{ @apply text-yellow-500; }

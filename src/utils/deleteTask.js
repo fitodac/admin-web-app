@@ -1,15 +1,15 @@
 import { supabase } from '../supabaseClient'
 
-const deleteTaskList = async id => {
+const deleteTask = async id => {
 
 	try {
 		const { delete_error } = await supabase
-			.from('tasklists')
+			.from('tasks')
 			.delete()
 			.eq('id', id)
 
 		if( delete_error ){
-			console.error('deleteTaskList (error):')
+			console.error('deleteTask (error):')
 			console.table(error)
 			return
 		}
@@ -24,4 +24,4 @@ const deleteTaskList = async id => {
 }
 
 
-export default deleteTaskList
+export default deleteTask

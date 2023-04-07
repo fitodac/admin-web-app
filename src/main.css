@@ -82,6 +82,12 @@ QUILL
 }
 
 
+.quill .ql-editor{ 
+	@apply font-medium;
+	font-size: 120%; 
+}
+
+
 
 
 /**

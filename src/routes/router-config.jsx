@@ -17,6 +17,9 @@ import
 	{ loader as projectLoader } 
 	from './Projects/Project'
 
+import TasksList from './Projects/Tasks'
+import Settings from './Projects/Settings'
+
 
 import UsersList from './Users/UsersList'
 
@@ -57,7 +60,12 @@ const router = createBrowserRouter([
 			},
 			{
 				path: '/projects/:id',
-				element: <Project/>,
+				element: <TasksList/>,
+				loader: projectLoader
+			},
+			{
+				path: '/projects/:id/settings',
+				element: <Settings/>,
 				loader: projectLoader
 			},
 			{

@@ -1,0 +1,10 @@
+.modal{
+	@apply bg-slate-750
+					w-[560px] h-full
+					right-0 inset-y-0 fixed overflow-y-auto
+					z-40;
+}
+
+.modal form{
+	@apply min-h-screen px-6 py-10;
+}

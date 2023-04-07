@@ -1,7 +1,7 @@
 import { supabase } from '../supabaseClient'
 import validateFormData from './validateFormData'
 
-const updateTasksLists = async form => {
+const createTask = async form => {
 
 	if( !form ) return
 	form = validateFormData(form)
@@ -9,16 +9,12 @@ const updateTasksLists = async form => {
 	try {
 
 		const { data, error } = await supabase
-			.from('tasklists')
-			.update({
-				...form,
-				id: Number(form.id)
-			})
-			.eq('id', form.id)
+			.from('tasks')
+			.insert(form)
 			.select()
 
 		if( error ){
-			console.error('updateTasksLists (error):')
+			console.error('createTask (error):')
 			console.table(error)
 			return
 		}
@@ -28,8 +24,6 @@ const updateTasksLists = async form => {
 	} catch (err) {
 		console.log('error', err)
 	}
-
 }
 
-
-export default updateTasksLists
+export default createTask

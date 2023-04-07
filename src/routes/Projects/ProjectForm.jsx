@@ -133,6 +133,9 @@ const ProjectForm = () => {
 										value={ name } 
 										label="Nombre"
 										onChange={ e => handleInput(e, 'name') } />
+
+									{ id ? (<div className={ `${style.uuid} mx-2 mt-2` }>{ uuid }</div>) : null }
+									
 								</div>
 
 								<div>
@@ -177,10 +180,12 @@ const ProjectForm = () => {
 
 									{ id ? (<input type="hidden" name="updated_at" value={ today } />) : null }
 
-									<input type="hidden" name="user" value={ user } />
+									<input type="hidden" name="user" defaultValue={ user } />
 
 									<button onClick={() => navigate(-1) }>Cancelar</button>
-									<Button text="Guardar" />
+									<Button 
+										text="Guardar"
+										type="submit" />
 								</div>
 							</div>
 						</div>
@@ -204,13 +209,16 @@ const ProjectForm = () => {
 				</Form>
 
 
-				<div className="mt-10">
-					<Form action="">
-						<button 
-							type="button"
-							onChange={() => deleteProject()}>Eliminar proyecto</button>
-					</Form>
-				</div>
+				{id ? 
+					(<div className="mt-10">
+						<Form action="">
+							<button 
+								type="button"
+								onClick={() => deleteProject(id)}>Eliminar proyecto</button>
+						</Form>
+					</div>) : 
+					null}
+				
 			</div>
 			
 		</div>

@@ -3,10 +3,10 @@
 .btn[type=submit]{
 	@apply bg-slate-900 text-slate-300 
 						font-semibold leading-none 
-						px-4 py-2.5 
+						px-4 py-2.5 cursor-pointer
 						whitespace-nowrap select-none 
 						rounded-md transition-all
-						hover:bg-slate-700 hover:text-slate-200 hover:shadow-md
+						hover:bg-slate-700 hover:text-slate-200
 						focus:bg-slate-600 focus:text-white;
 }
 
@@ -17,4 +17,27 @@
 
 .btn.large{
 	@apply px-6 py-3;
+}
+
+
+
+
+
+.btn-group{
+	@apply flex;
+}
+
+.btn-group .btn{
+	@apply flex rounded-none;
+}
+
+.btn-group label:first-of-type .btn{ @apply rounded-l-md; }
+.btn-group label:last-of-type .btn{ @apply rounded-r-md; }
+
+.btn-group input{
+	@apply absolute hidden;
+}
+
+.btn-group input:checked + .btn{
+	@apply bg-slate-700 text-slate-200;
 }

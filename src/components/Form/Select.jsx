@@ -11,7 +11,7 @@ const Select = (props) => {
 	const { 
 		label,
 		required,
-		options
+		options // { value: '', label: ''}
 	} = props
 
 
@@ -34,6 +34,7 @@ const Select = (props) => {
 				value={ options[options.findIndex(e => e.value === props.value)] }
 				options={ options } 
 				className={ style.select }
+				classNamePrefix={ style.select }
 				onChange={ handleChange } />
 		</div>
 	)

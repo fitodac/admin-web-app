@@ -236,7 +236,9 @@ const UserForm = () => {
 								<div>
 									<input type="hidden" name="country" value={ country } />
 
-									<Button text="Guardar" />
+									<Button 
+										text="Guardar"
+										type="submit" />
 								</div>
 
 							</div>
